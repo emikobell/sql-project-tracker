@@ -2,7 +2,7 @@
 -- PostgreSQL database dump
 --
 
--- Dumped from database version 14.7 (Homebrew)
+-- Dumped from database version 13.10
 -- Dumped by pg_dump version 14.7 (Homebrew)
 
 SET statement_timeout = 0;
@@ -21,7 +21,7 @@ SET default_tablespace = '';
 SET default_table_access_method = heap;
 
 --
--- Name: grades; Type: TABLE; Schema: public; Owner: Emiko
+-- Name: grades; Type: TABLE; Schema: public; Owner: taiyo.s-k
 --
 
 CREATE TABLE public.grades (
@@ -32,10 +32,10 @@ CREATE TABLE public.grades (
 );
 
 
-ALTER TABLE public.grades OWNER TO "Emiko";
+ALTER TABLE public.grades OWNER TO "taiyo.s-k";
 
 --
--- Name: grades_id_seq; Type: SEQUENCE; Schema: public; Owner: Emiko
+-- Name: grades_id_seq; Type: SEQUENCE; Schema: public; Owner: taiyo.s-k
 --
 
 CREATE SEQUENCE public.grades_id_seq
@@ -47,17 +47,17 @@ CREATE SEQUENCE public.grades_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.grades_id_seq OWNER TO "Emiko";
+ALTER TABLE public.grades_id_seq OWNER TO "taiyo.s-k";
 
 --
--- Name: grades_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: Emiko
+-- Name: grades_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: taiyo.s-k
 --
 
 ALTER SEQUENCE public.grades_id_seq OWNED BY public.grades.id;
 
 
 --
--- Name: projects; Type: TABLE; Schema: public; Owner: Emiko
+-- Name: projects; Type: TABLE; Schema: public; Owner: taiyo.s-k
 --
 
 CREATE TABLE public.projects (
@@ -67,10 +67,10 @@ CREATE TABLE public.projects (
 );
 
 
-ALTER TABLE public.projects OWNER TO "Emiko";
+ALTER TABLE public.projects OWNER TO "taiyo.s-k";
 
 --
--- Name: students; Type: TABLE; Schema: public; Owner: Emiko
+-- Name: students; Type: TABLE; Schema: public; Owner: taiyo.s-k
 --
 
 CREATE TABLE public.students (
@@ -80,17 +80,17 @@ CREATE TABLE public.students (
 );
 
 
-ALTER TABLE public.students OWNER TO "Emiko";
+ALTER TABLE public.students OWNER TO "taiyo.s-k";
 
 --
--- Name: grades id; Type: DEFAULT; Schema: public; Owner: Emiko
+-- Name: grades id; Type: DEFAULT; Schema: public; Owner: taiyo.s-k
 --
 
 ALTER TABLE ONLY public.grades ALTER COLUMN id SET DEFAULT nextval('public.grades_id_seq'::regclass);
 
 
 --
--- Data for Name: grades; Type: TABLE DATA; Schema: public; Owner: Emiko
+-- Data for Name: grades; Type: TABLE DATA; Schema: public; Owner: taiyo.s-k
 --
 
 COPY public.grades (id, student_github, project_title, grade) FROM stdin;
@@ -98,11 +98,14 @@ COPY public.grades (id, student_github, project_title, grade) FROM stdin;
 2	jhacks	Blockly	2
 3	sdevelops	Markov	50
 4	sdevelops	Blockly	100
+9	sdevelops	Blockly	1
+10	jhacks	Coffee Tracker	1000
+12	jhacks	Blockly	1
 \.
 
 
 --
--- Data for Name: projects; Type: TABLE DATA; Schema: public; Owner: Emiko
+-- Data for Name: projects; Type: TABLE DATA; Schema: public; Owner: taiyo.s-k
 --
 
 COPY public.projects (title, description, max_grade) FROM stdin;
@@ -115,7 +118,7 @@ Tea Tracker	Find ALL THE TEA	1000
 
 
 --
--- Data for Name: students; Type: TABLE DATA; Schema: public; Owner: Emiko
+-- Data for Name: students; Type: TABLE DATA; Schema: public; Owner: taiyo.s-k
 --
 
 COPY public.students (github, first_name, last_name) FROM stdin;
@@ -125,14 +128,14 @@ sdevelops	Sarah	Developer
 
 
 --
--- Name: grades_id_seq; Type: SEQUENCE SET; Schema: public; Owner: Emiko
+-- Name: grades_id_seq; Type: SEQUENCE SET; Schema: public; Owner: taiyo.s-k
 --
 
-SELECT pg_catalog.setval('public.grades_id_seq', 4, true);
+SELECT pg_catalog.setval('public.grades_id_seq', 12, true);
 
 
 --
--- Name: grades grades_pkey; Type: CONSTRAINT; Schema: public; Owner: Emiko
+-- Name: grades grades_pkey; Type: CONSTRAINT; Schema: public; Owner: taiyo.s-k
 --
 
 ALTER TABLE ONLY public.grades
@@ -140,7 +143,7 @@ ALTER TABLE ONLY public.grades
 
 
 --
--- Name: projects projects_pkey; Type: CONSTRAINT; Schema: public; Owner: Emiko
+-- Name: projects projects_pkey; Type: CONSTRAINT; Schema: public; Owner: taiyo.s-k
 --
 
 ALTER TABLE ONLY public.projects
@@ -148,7 +151,7 @@ ALTER TABLE ONLY public.projects
 
 
 --
--- Name: students students_pkey; Type: CONSTRAINT; Schema: public; Owner: Emiko
+-- Name: students students_pkey; Type: CONSTRAINT; Schema: public; Owner: taiyo.s-k
 --
 
 ALTER TABLE ONLY public.students
@@ -156,7 +159,7 @@ ALTER TABLE ONLY public.students
 
 
 --
--- Name: grades grades_project_title_fkey; Type: FK CONSTRAINT; Schema: public; Owner: Emiko
+-- Name: grades grades_project_title_fkey; Type: FK CONSTRAINT; Schema: public; Owner: taiyo.s-k
 --
 
 ALTER TABLE ONLY public.grades
@@ -164,7 +167,7 @@ ALTER TABLE ONLY public.grades
 
 
 --
--- Name: grades grades_student_github_fkey; Type: FK CONSTRAINT; Schema: public; Owner: Emiko
+-- Name: grades grades_student_github_fkey; Type: FK CONSTRAINT; Schema: public; Owner: taiyo.s-k
 --
 
 ALTER TABLE ONLY public.grades
